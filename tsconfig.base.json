@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@fintechain-monorepo/shared-ui": ["libs/shared/ui/src/index.ts"],
+      "@fintechain-monorepo/website-ui": ["libs/website/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
