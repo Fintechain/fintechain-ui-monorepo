@@ -1,7 +1,8 @@
+import { HorizontalPostList } from "@fintechain-monorepo/wordpress-ui";
 
 export function About() {
   return (
-      <h1>Welcome to About!</h1>
+      <HorizontalPostList/>
   );
 }
 

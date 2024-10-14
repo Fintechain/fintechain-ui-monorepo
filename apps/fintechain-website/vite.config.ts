@@ -33,4 +33,7 @@ export default defineConfig({
       transformMixedEsModules: true,
     },
   },
+  define: {
+    'process.env': {},
+  },
 });

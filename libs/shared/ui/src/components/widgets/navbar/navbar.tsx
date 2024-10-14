@@ -16,7 +16,7 @@ interface NavItemPropsType {
 function NavItem({ label, href }: NavItemPropsType) {
     return (
         <a href={href}>
-            <Typography as="li" color="blue-gray" className="p-1 font-medium font-schibsted">
+            <Typography as="li" className="p-1 font-medium">
                 {label}
             </Typography>
         </a>
@@ -52,29 +52,27 @@ export const NavbarWithSimpleLinks: React.FC<NavbarProps> = ({ title, navItems }
     }, []);
 
     return (
-        <Navbar className="text-blue-gray-900" color="transparent" fullWidth>
+        <Navbar className="" color="transparent" fullWidth>
             <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
                 <Typography
                     as="a"
                     href="/"
-                    color="blue-gray"
-                    className="mr-4 cursor-pointer text-lg font-bold font-schibsted"
+                    className="mr-4 cursor-pointer text-lg font-bold"
                 >
                     {title}
                 </Typography>
                 <div className="hidden lg:block">
                     <NavList navItems={navItems} />
                 </div>
-                <Button className="rounded-full flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700">
+                <Button className="rounded-full flex items-center gap-2  bg-primary-dark hover:from-blue-700 hover:to-indigo-700">
                     <Bars3Icon className="h-5 w-5" /> Sign In
                 </Button>
 
                 <IconButton
                     size="sm"
                     variant="text"
-                    color="blue-gray"
                     onClick={handleOpen}
-                    className="ml-auto inline-block text-blue-gray-900 lg:hidden"
+                    className="ml-auto inline-block text-neutral-light lg:hidden"
                 >
                     {open ? (
                         <XMarkIcon className="h-6 w-6" strokeWidth={2} />

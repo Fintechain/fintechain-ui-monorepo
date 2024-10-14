@@ -10,12 +10,21 @@ import {
 	Link
 } from "react-router-dom";
 import { SiteLayout, FooterProps, HeaderProps, } from "@fintechain-monorepo/shared-ui";
-import { Home, About, Contact, Join, Needs, Philosophy, Solutions } from "@fintechain-monorepo/website-ui";
+import { Home, About, Contact, Join, Needs, Philosophy, Solutions, HomeProps } from "@fintechain-monorepo/website-ui";
 import backgroundImage from '../assets/home-splash.jpg';
 import backgroundPatternImage from '../assets/home-pattern.jpg';
+import servicesBackgroundImage from '../assets/services-splash.jpg';
 // Example usage:
 const App: React.FC = () => {
-	
+
+	const homeProps: HomeProps = {
+		backgroundImages: {
+			backgroundImage,
+			backgroundPatternImage,
+			servicesBackgroundImage
+		}
+	}
+
 	const headerProps: HeaderProps = {
 		title: "FinTechain Solutions",
 		navItems: [
@@ -79,11 +88,11 @@ const App: React.FC = () => {
 			
 			*/}
 				<Routes>
-					<Route path="/" element={<Home backgroundImage={backgroundImage} backgroundPatternImage={backgroundPatternImage}/>} />
+					<Route path="/" element={<Home backgroundImages={homeProps.backgroundImages} />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/needs" element={<Needs />} />
 					<Route path="/solutions" element={<Solutions />} />
-					<Route path="/docs" element={<Home backgroundImage={backgroundImage} backgroundPatternImage={backgroundImage} />} />
+					{/* <Route path="/docs" element={<Home backgroundImages={homeProps.backgroundImages}/>} /> */}
 					<Route path="/philosophy" element={<Philosophy />} />
 					<Route path="/join" element={<Join />} />
 					<Route path="/contact" element={<Contact />} />

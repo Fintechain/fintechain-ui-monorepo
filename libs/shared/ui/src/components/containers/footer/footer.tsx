@@ -17,7 +17,7 @@ export interface FooterProps {
   
   export const Footer5: React.FC<FooterProps> = ({ navItems }) => {
     return (
-        <footer className="bg-gradient-to-tr from-gray-900 to-gray-800 py-10 px-8">
+        <footer className="bg-primary-dark py-10 px-8">
             <div className="container mx-auto">
                 <div className="border-b border-white/50 pb-8 grid grid-cols-1 lg:grid-cols-3 gap-y-10">
                     <div className="lg:row-auto row-start-2 col-span-2 grid grid-cols-2 gap-6 md:grid-cols-4">
