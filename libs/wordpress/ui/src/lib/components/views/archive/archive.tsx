@@ -1,7 +1,7 @@
+import PostList from "../../containers/post-list/post-list";
 export function Archive() {
-  return (
-      <h1>Welcome to Archive!</h1>
-  );
+
+  return <PostList />;
 }
 
 export default Archive;

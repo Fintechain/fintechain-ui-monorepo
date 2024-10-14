@@ -1,3 +1,4 @@
+export * from './lib/components/containers/post-list/post-list';
 export * from './lib/components/views/search/search';
 export * from './lib/components/views/archive/archive';
 export * from './lib/components/views/single-page/single-page';

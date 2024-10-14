@@ -1,5 +1,3 @@
-export * from './components/containers/single-post/single-post';
-export * from './components/containers/single-page/single-page';
 export * from './components/containers/image-background-section/image-background-section';
 export * from './components/widgets/about/about';
 export * from './components/widgets/features/features';

@@ -1,6 +1,6 @@
 # WordPress Component Generation Prompt
 
-Create a React component for [COMPONENT_NAME] that interacts with WordPress data:
+Create a React component for [COMPONENT_NAME] = 'PostList' that interacts with WordPress data:
 
 1. Use TypeScript for type safety.
 2. Import necessary types from the shared types file.
@@ -39,7 +39,7 @@ export const [COMPONENT_NAME]: React.FC<[COMPONENT_NAME]Props> = ({ postId }) =>
   );
 };
 
-export default React.memo([COMPONENT_NAME]);
+export default [COMPONENT_NAME];
 ```
 
 Key considerations:
@@ -48,5 +48,7 @@ Key considerations:
 - Implement proper TypeScript typing for all props and data.
 - Ensure the component is reusable and follows single responsibility principle.
 - Consider implementing subcomponents for complex layouts.
+- Use Tailwind CSS for styling, focusing on responsive design.
+- Incorporate Material Tailwind React components where appropriate.
 
 Please provide any additional requirements or specific WordPress data this component should display or interact with.

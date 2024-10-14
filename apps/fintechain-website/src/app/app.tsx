@@ -14,6 +14,7 @@ import { Home, About, Contact, Join, Needs, Philosophy, Solutions, HomeProps } f
 import backgroundImage from '../assets/home-splash.jpg';
 import backgroundPatternImage from '../assets/home-pattern.jpg';
 import servicesBackgroundImage from '../assets/services-splash.jpg';
+import { Archive } from "@fintechain-monorepo/wordpress-ui";
 // Example usage:
 const App: React.FC = () => {
 
@@ -90,7 +91,7 @@ const App: React.FC = () => {
 				<Routes>
 					<Route path="/" element={<Home backgroundImages={homeProps.backgroundImages} />} />
 					<Route path="/about" element={<About />} />
-					<Route path="/needs" element={<Needs />} />
+					<Route path="/needs" element={<Archive />} />
 					<Route path="/solutions" element={<Solutions />} />
 					{/* <Route path="/docs" element={<Home backgroundImages={homeProps.backgroundImages}/>} /> */}
 					<Route path="/philosophy" element={<Philosophy />} />
