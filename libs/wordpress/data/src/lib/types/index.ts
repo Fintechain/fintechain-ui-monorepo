@@ -267,6 +267,7 @@ export interface PostsState {
 
 export interface PagesState {
     byId: Record<number, Page>;
+    bySlug: Record<string, Page>;
     allIds: number[];
     loading: boolean;
     error: string | null;

@@ -44,7 +44,7 @@ export class SiteLayout extends React.Component<SiteLayoutProps> {
         return (
             <div className="flex flex-col min-h-screen">
                 <Header {...headerProps} />
-                <main className="flex-grow">
+                <main className="flex flex-col h-full flex-grow">
                     {children}
                 </main>
                 <Footer5  {...footerProps} />

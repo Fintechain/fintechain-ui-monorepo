@@ -149,30 +149,7 @@ e. `SearchPage.tsx`
 6. Implement accessibility features (ARIA attributes, keyboard navigation).
 7. Use React.memo() for performance optimization where appropriate.
 
-## API Interaction Example
 
-```typescript
-// In lib/shared/wordpress/data/hooks/usePosts.ts
-import { useQuery } from 'react-query';
-import { wpApiService } from '../wpApiService';
-
-export function usePosts(params?: PostQueryParams) {
-  return useQuery(['posts', params], () => wpApiService.getPosts(params));
-}
-
-// In apps/fintechain-website/src/pages/HomePage.tsx
-import { usePosts } from '@myorg/shared/wordpress/data';
-import { PostList, Spinner, ErrorMessage } from '@myorg/shared/wordpress/ui';
-
-export function HomePage() {
-  const { data: posts, isLoading, error } = usePosts({ per_page: 10 });
-
-  if (isLoading) return <Spinner />;
-  if (error) return <ErrorMessage message={error.message} />;
-
-  return <PostList posts={posts} />;
-}
-```
 
 ## Additional Considerations
 

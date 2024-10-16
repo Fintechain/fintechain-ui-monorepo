@@ -7,7 +7,21 @@ import {
     PostsState
 } from '../../types';
 
-const wpApiService = new WpApiService('https://your-wordpress-site.com/wp-json');
+/* console.log("########################", process.env)
+const apiUrl = import.meta.env.VITE_API_URL;
+const appTitle = import.meta.env.VITE_APP_TITLE; */
+
+
+
+/* const apiUrl = process.env.REACT_APP_WP_API_URL;
+if (!apiUrl) {
+    throw new Error("API URL is not defined");
+} */
+
+
+
+
+const wpApiService = new WpApiService("http://0.0.0.0:8080/wp-json");
 
 /**
  * Posts Model

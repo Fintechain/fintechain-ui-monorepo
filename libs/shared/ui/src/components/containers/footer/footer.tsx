@@ -65,49 +65,15 @@ export interface FooterProps {
                                 <Option>French</Option>
                                 <Option>Spanish</Option>
                             </Select>
-                            <Select
-                                variant="standard"
-                                label="Select Currency"
-                                className="!text-white !border-white"
-                                labelProps={{
-                                    className: "!text-white after:!border-white",
-                                }}
-                                containerProps={{
-                                    className: "[&_svg]:!text-white",
-                                }}
-                            >
-                                <Option>USD</Option>
-                                <Option>Euro</Option>
-                                <Option>Rupee</Option>
-                            </Select>
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col gap-y-8 justify-between md:items-start border-b border-white/50 py-8 md:flex-row">
-                    <div>
-                        <Typography variant="h6" color="white" className="mb-2">
-                            Subscribe to our newsletters
-                        </Typography>
-                        <Typography color="white" className="!text-sm">
-                            The latest news, articles and resources sent to your inbox
-                            weekely.
-                        </Typography>
-                    </div>
-                    <div className="flex flex-col items-center gap-4 md:flex-row">
-                        <Input label="Email" color="white" />
-                        <Button
-                            color="white"
-                            className="w-full flex-shrink-0 md:w-fit"
-                        >
-                            subscribe
-                        </Button>
-                    </div>
-                </div>
+                
                 <Typography
                     color="white"
                     className="mt-8 text-left !text-sm font-normal"
                 >
-                    All rights reserved. Copyright &copy; {currentYear} Material Tailwind
+                    All rights reserved. Copyright &copy; {currentYear} Fintechain
                 </Typography>
             </div>
         </footer>

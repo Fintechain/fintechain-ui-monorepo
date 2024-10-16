@@ -7,7 +7,7 @@ import {
     PagesState
 } from '../../types';
 
-const wpApiService = new WpApiService('https://your-wordpress-site.com/wp-json');
+const wpApiService = new WpApiService("http://0.0.0.0:8080/wp-json");
 
 /**
  * Pages Model
@@ -18,6 +18,7 @@ export const pages = createModel<RootModel>()({
     state: {
         byId: {},
         allIds: [],
+        bySlug: {},
         loading: false,
         error: null,
         totalPages: 0
@@ -54,6 +55,15 @@ export const pages = createModel<RootModel>()({
             };
         },
 
+        setPageBySlug(state, page: Page): PagesState {
+            return {
+                ...state,
+                byId: { ...state.byId, [page.id]: page },
+                bySlug: { ...state.bySlug, [page.slug]: page },
+                allIds: state.allIds.includes(page.id) ? state.allIds : [...state.allIds, page.id]
+            };
+        },
+
         /**
          * Sets an error in the state
          */
@@ -83,6 +93,18 @@ export const pages = createModel<RootModel>()({
                 // or the API service would need to be modified to return this information.
             } catch (error) {
                 dispatch.pages.setError(error instanceof Error ? error.message : 'An error occurred while fetching pages');
+            } finally {
+                dispatch.pages.setLoading(false);
+            }
+        },
+
+        async fetchPageBySlug(slug: string): Promise<void> {
+            dispatch.pages.setLoading(true);
+            try {
+                const page = await wpApiService.getPageBySlug(slug);
+                dispatch.pages.setPageBySlug(page);
+            } catch (error) {
+                dispatch.pages.setError(error instanceof Error ? error.message : 'An error occurred while fetching the page');
             } finally {
                 dispatch.pages.setLoading(false);
             }

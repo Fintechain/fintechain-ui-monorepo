@@ -64,11 +64,16 @@ class WpApiService {
     }
 
     async getPosts(params?: PostQueryParams): Promise<Post[]> {
-        return this.get<Post[]>('/wp/v2/posts', params);
+        return this.get<Post[]>('/wp/v2/posts', {
+            ...params,
+            _embed: true  // This will include featured media in the response
+        });
     }
 
     async getPost(id: number): Promise<Post> {
-        return this.get<Post>(`/wp/v2/posts/${id}`);
+        return this.get<Post>(`/wp/v2/posts/${id}`, {
+            _embed: true  // This will include featured media in the response
+        });
     }
 
     async getPages(params?: PageQueryParams): Promise<Page[]> {
@@ -78,6 +83,19 @@ class WpApiService {
     async getPage(id: number): Promise<Page> {
         return this.get<Page>(`/wp/v2/pages/${id}`);
     }
+
+    async getPageBySlug(slug: string): Promise<Page> {
+        return this.get<Page[]>('/wp/v2/pages', {
+            slug: slug,
+            _embed: true  // This will include featured media in the response
+        }).then(pages => {
+            if (pages.length === 0) {
+                throw new Error('Page not found');
+            }
+            return pages[0];
+        });
+    }
+
 
     async getCategories(params?: CategoryQueryParams): Promise<Category[]> {
         return this.get<Category[]>('/wp/v2/categories', params);

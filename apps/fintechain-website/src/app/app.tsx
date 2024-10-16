@@ -1,40 +1,43 @@
 import React from "react";
 import {
-	IconButton,
-	Typography,
-} from "@material-tailwind/react";
-import {
 	BrowserRouter as Router,
 	Routes,
 	Route,
-	Link
 } from "react-router-dom";
-import { SiteLayout, FooterProps, HeaderProps, } from "@fintechain-monorepo/shared-ui";
-import { Home, About, Contact, Join, Needs, Philosophy, Solutions, HomeProps } from "@fintechain-monorepo/website-ui";
+
 import backgroundImage from '../assets/home-splash.jpg';
 import backgroundPatternImage from '../assets/home-pattern.jpg';
 import servicesBackgroundImage from '../assets/services-splash.jpg';
-import { Archive } from "@fintechain-monorepo/wordpress-ui";
-// Example usage:
+import about1BackgroundImage from '../assets/storage-splash.jpg';
+import about2BackgroundImage from '../assets/chip-splash.jpg';
+import aboutBackgroundImage from '../assets/about-splash.jpg';
+
+import { PageView, PostListView, PostView } from "@fintechain-monorepo/wordpress-ui";
+import { Home, Contact, HomeProps } from "@fintechain-monorepo/website-ui";
+import { SiteLayout, FooterProps, HeaderProps, } from "@fintechain-monorepo/shared-ui";
+
 const App: React.FC = () => {
 
 	const homeProps: HomeProps = {
 		backgroundImages: {
 			backgroundImage,
 			backgroundPatternImage,
-			servicesBackgroundImage
+			servicesBackgroundImage,
+			about1BackgroundImage,
+			about2BackgroundImage,
+			aboutBackgroundImage
 		}
 	}
 
 	const headerProps: HeaderProps = {
-		title: "FinTechain Solutions",
+		title: "Fintechain",
 		navItems: [
-			{ label: "About Us", href: "/about" },
-			{ label: "Your needs", href: "/needs" },
-			{ label: "Our solutions", href: "/solutions" },
-			{ label: "Docs", href: "/docs" },
-			{ label: "Philosophy", href: "/philosophy" },
-			{ label: "Join", href: "/join" },
+			{ label: "About Us", href: "/page/about" },
+			{ label: "Your needs", href: "/page/needs" },
+			{ label: "Our solutions", href: "/page/solutions" },
+			{ label: "Docs", href: "/page/privacy-policy" },
+			{ label: "Philosophy", href: "/page/philosophy" },
+			{ label: "Blog", href: "/blog" },
 			{ label: "Contact", href: "/contact" },
 		],
 	};
@@ -44,37 +47,33 @@ const App: React.FC = () => {
 			{
 				title: "Company",
 				items: [
-					{ label: "About Us", href: "#about" },
-					{ label: "Careers", href: "#careers" },
-					{ label: "Premium Tools", href: "#premium" },
-					{ label: "Blog", href: "#blog" },
+					{ label: "About Us", href: "/page/about" },
+					{ label: "Careers", href: "/page/careers" },
+					{ label: "Blog", href: "/blog" },
 				],
 			},
 			{
 				title: "Pages",
 				items: [
-					{ label: "Login", href: "#login" },
-					{ label: "Register", href: "#register" },
-					{ label: "Add List", href: "#add-list" },
-					{ label: "Contact", href: "#contact" },
+					{ label: "Connect", href: "/page/docs" },
+					{ label: "Philosophy", href: "/page/docs" },
+					{ label: "Contact", href: "/page/docs" },
 				],
 			},
 			{
 				title: "Legal",
 				items: [
-					{ label: "Terms", href: "#terms" },
-					{ label: "Privacy", href: "#privacy" },
-					{ label: "Team", href: "#team" },
-					{ label: "About Us", href: "#about" },
+					{ label: "Terms", href: "/page/docs" },
+					{ label: "Privacy", href: "/page/docs" },
+					{ label: "Team", href: "/page/docs" },
 				],
 			},
 			{
 				title: "Resources",
 				items: [
-					{ label: "Blog", href: "#blog" },
-					{ label: "Services", href: "#services" },
-					{ label: "Product", href: "#product" },
-					{ label: "Pricing", href: "#pricing" },
+					{ label: "Docs", href: "/page/docs" },
+					{ label: "Services", href: "/page/solutions" },
+					{ label: "Pricing", href: "/page/pricing" },
 				],
 			},
 		],
@@ -90,12 +89,9 @@ const App: React.FC = () => {
 			*/}
 				<Routes>
 					<Route path="/" element={<Home backgroundImages={homeProps.backgroundImages} />} />
-					<Route path="/about" element={<About />} />
-					<Route path="/needs" element={<Archive />} />
-					<Route path="/solutions" element={<Solutions />} />
-					{/* <Route path="/docs" element={<Home backgroundImages={homeProps.backgroundImages}/>} /> */}
-					<Route path="/philosophy" element={<Philosophy />} />
-					<Route path="/join" element={<Join />} />
+					<Route path="/post/:id" element={<PostView />} />
+					<Route path="/page/:slug" element={<PageView />} />
+					<Route path="/blog" element={<PostListView />} />
 					<Route path="/contact" element={<Contact />} />
 				</Routes>
 			</SiteLayout>
