@@ -26,7 +26,6 @@ interface AboutSectionProps {
 }
 
 export function AboutSection({ sections }: AboutSectionProps) {
-    console.log("############", sections)
     return (
         <>
             {sections.map((section, index) => (

@@ -1,5 +1,5 @@
 import { PageHeaderSection, UiSection } from "@fintechain-monorepo/shared-ui";
-import ContactForm from "../../widgets/contact/contact";
+import ContactForm from "../../widgets/home/contact/contact";
 
 export function Contact() {
     return (

@@ -13,7 +13,7 @@ import about2BackgroundImage from '../assets/chip-splash.jpg';
 import aboutBackgroundImage from '../assets/about-splash.jpg';
 
 import { PageView, PostListView, PostView } from "@fintechain-monorepo/wordpress-ui";
-import { Home, Contact, HomeProps } from "@fintechain-monorepo/website-ui";
+import { Home, Contact, HomeProps, About, NeedsView, SolutionsView, PhilosophyView } from "@fintechain-monorepo/website-ui";
 import { SiteLayout, FooterProps, HeaderProps, } from "@fintechain-monorepo/shared-ui";
 
 const App: React.FC = () => {
@@ -32,11 +32,11 @@ const App: React.FC = () => {
 	const headerProps: HeaderProps = {
 		title: "Fintechain",
 		navItems: [
-			{ label: "About Us", href: "/page/about" },
-			{ label: "Your needs", href: "/page/needs" },
-			{ label: "Our solutions", href: "/page/solutions" },
+			{ label: "About Us", href: "/about" },
+			{ label: "Your needs", href: "/needs" },
+			{ label: "Our solutions", href: "/solutions" },
 			{ label: "Docs", href: "/page/privacy-policy" },
-			{ label: "Philosophy", href: "/page/philosophy" },
+			{ label: "Philosophy", href: "/philosophy" },
 			{ label: "Blog", href: "/blog" },
 			{ label: "Contact", href: "/contact" },
 		],
@@ -93,6 +93,10 @@ const App: React.FC = () => {
 					<Route path="/page/:slug" element={<PageView />} />
 					<Route path="/blog" element={<PostListView />} />
 					<Route path="/contact" element={<Contact />} />
+					<Route path="/about" element={<About />} />
+					<Route path="/needs" element={<NeedsView />} />
+					<Route path="/solutions" element={<SolutionsView />} />
+					<Route path="/philosophy" element={<PhilosophyView />} />
 				</Routes>
 			</SiteLayout>
 		</Router>

@@ -1,13 +1,13 @@
 import React from "react";
-import { Hero } from "../../widgets/hero/hero";
-import SolutionsSection from "../../widgets/solutions/solutions";
+import { Hero } from "../../widgets/home/hero/hero";
+import SolutionsSection from "../../widgets/home/solutions/solutions";
 
-import TeamSection from "../../widgets/team/team";
-import AboutSection from "../../widgets/about/about";
+import TeamSection from "../../widgets/home/team/team";
+import AboutSection from "../../widgets/home/about/about";
 import { Bars3Icon, FingerPrintIcon, RectangleGroupIcon } from "@heroicons/react/24/outline";
 import { UiSection } from "@fintechain-monorepo/shared-ui";
-import NewsLetter from "../../widgets/newsletter/newsletter";
-import FeatureSection from "../../widgets/features/features";
+import NewsLetter from "../../widgets/home/newsletter/newsletter";
+import FeatureSection from "../../widgets/home/features/features";
 import ContentSection from "../../containers/cta-container/cta-container";
 
 export interface HomeProps {
@@ -130,7 +130,7 @@ export function Home({ backgroundImages }: HomeProps) {
                 <NewsLetter />
             </UiSection>
 
-            <UiSection
+            {/* <UiSection
                 backgroundType="image"
                 backgroundValue={backgroundImages.servicesBackgroundImage}
                 overlayColor="bg-blue-900"
@@ -139,12 +139,14 @@ export function Home({ backgroundImages }: HomeProps) {
                 contentClassName=""
             >
                 <TeamSection />
-            </UiSection>
+            </UiSection> */}
 
             <UiSection
-                backgroundType="color"
-                backgroundValue="bg-primary-light"
-                className="lg:py-20 py-10 px-8 text-neutral-light"
+                backgroundType="image"
+                backgroundValue={backgroundImages.servicesBackgroundImage}
+                overlayColor="bg-blue-900"
+                overlayOpacity={10}
+                className="lg:py-20 py-10 px-8"
                 contentClassName=""
             >
 

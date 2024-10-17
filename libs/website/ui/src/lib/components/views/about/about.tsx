@@ -1,8 +1,9 @@
 import { PostContent } from "@fintechain-monorepo/wordpress-ui";
+import AboutContent from "../../containers/about-content/about-content";
 
 export function About() {
   return (
-      <PostContent postId={1}/>
+      <AboutContent />
   );
 }
 
