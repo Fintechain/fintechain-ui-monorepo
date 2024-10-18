@@ -15,14 +15,16 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fintechain-monorepo/ethereum-data": ["libs/ethereum/data/src/index.ts"],
-      "@fintechain-monorepo/ethereum-ui": ["libs/ethereum/ui/src/index.ts"],
       "@fintechain-monorepo/shared-ui": ["libs/shared/ui/src/index.ts"],
-      "@fintechain-monorepo/website-ui": ["libs/website/ui/src/index.ts"],
-      "@fintechain-monorepo/wordpress-data": [
-        "libs/wordpress/data/src/index.ts"
-      ],
-      "@fintechain-monorepo/wordpress-ui": ["libs/wordpress/ui/src/index.ts"]
+      "@fintechain-monorepo/shared-data": ["libs/shared/data/src/index.ts"],
+      "@fintechain-monorepo/wordpress-ui": ["libs/wordpress/ui/src/index.ts"],
+      "@fintechain-monorepo/wordpress-data": ["libs/wordpress/data/src/index.ts"],
+      "@fintechain-monorepo/ethereum-ui": ["libs/ethereum/ui/src/index.ts"],
+      "@fintechain-monorepo/ethereum-data": ["libs/ethereum/data/src/index.ts"],
+      "@fintechain-monorepo/website-shared-ui": ["libs/website-shared/ui/src/index.ts"],
+      "@fintechain-monorepo/website-shared-data": ["libs/website-shared/data/src/index.ts"],
+      "@fintechain-monorepo/fintechain-website-ui": ["libs/fintechain-website/ui/src/index.ts"],
+      "@fintechain-monorepo/fintechain-website-data": ["libs/fintechain-website/data/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -12,9 +12,9 @@ import about1BackgroundImage from '../assets/storage-splash.jpg';
 import about2BackgroundImage from '../assets/chip-splash.jpg';
 import aboutBackgroundImage from '../assets/about-splash.jpg';
 
-import { PageView, PostListView, PostView } from "@fintechain-monorepo/wordpress-ui";
-import { Home, Contact, HomeProps, About, NeedsView, SolutionsView, PhilosophyView } from "@fintechain-monorepo/website-ui";
-import { SiteLayout, FooterProps, HeaderProps, } from "@fintechain-monorepo/shared-ui";
+import * as WordPressUiLib from "@fintechain-monorepo/wordpress-ui";
+import * as FintechainWebsiteUiLib from "@fintechain-monorepo/fintechain-website-ui";
+import { SiteLayout, FooterProps, HeaderProps, } from "@fintechain-monorepo/website-ui";
 
 const App: React.FC = () => {
 
@@ -34,7 +34,7 @@ const App: React.FC = () => {
 		navItems: [
 			{ label: "About Us", href: "/about" },
 			{ label: "Your needs", href: "/needs" },
-			{ label: "Our solutions", href: "/solutions" },
+			{ label: "Solutions", href: "/solutions" },
 			{ label: "Docs", href: "/page/privacy-policy" },
 			{ label: "Philosophy", href: "/philosophy" },
 			{ label: "Blog", href: "/blog" },
@@ -88,15 +88,17 @@ const App: React.FC = () => {
 			
 			*/}
 				<Routes>
-					<Route path="/" element={<Home backgroundImages={homeProps.backgroundImages} />} />
-					<Route path="/post/:id" element={<PostView />} />
-					<Route path="/page/:slug" element={<PageView />} />
-					<Route path="/blog" element={<PostListView />} />
-					<Route path="/contact" element={<Contact />} />
-					<Route path="/about" element={<About />} />
-					<Route path="/needs" element={<NeedsView />} />
-					<Route path="/solutions" element={<SolutionsView />} />
-					<Route path="/philosophy" element={<PhilosophyView />} />
+					<Route path="/" element={
+						<FintechainWebsiteUiLib.Home backgroundImages={homeProps.backgroundImages} />
+					} />
+					<Route path="/post/:id" element={<WordPressUiLib.PostView />} />
+					<Route path="/blog" element={<WordPressUiLib.PostListView />} />
+					<Route path="/page/:slug" element={<WordPressUiLib.PageView />} />
+					<Route path="/about" element={<FintechainWebsiteUiLib.About />} />
+					<Route path="/contact" element={<FintechainWebsiteUiLib.Contact />} />
+					<Route path="/needs" element={<FintechainWebsiteUiLib.NeedsView />} />
+					<Route path="/solutions" element={<FintechainWebsiteUiLib.SolutionsView />} />
+					<Route path="/philosophy" element={<FintechainWebsiteUiLib.PhilosophyView />} />
 				</Routes>
 			</SiteLayout>
 		</Router>
