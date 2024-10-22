@@ -1,4 +1,4 @@
-import "reflect-metadata";
+
 // ... other imports follow
 import { DataService, PageData, useData } from "@fintechain-monorepo/page-architect";
 import { container, TYPES } from "./container";

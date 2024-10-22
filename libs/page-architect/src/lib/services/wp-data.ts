@@ -1,9 +1,8 @@
 import { injectable, inject } from "inversify";
-import { Post } from "../types";
 import { ApiDataService, ID, ListParams, ListResult } from "@fintechain-monorepo/page-architect";
 
 @injectable()
-export class WordPressApiService extends ApiDataService<Post> {
+export class WordPressDataService extends ApiDataService<any> {
     constructor(
         @inject("ApiBaseUrl") protected baseUrl: string,
         @inject("ApiKey") protected apiKey: string = ''
@@ -12,7 +11,7 @@ export class WordPressApiService extends ApiDataService<Post> {
     }
 
     // Override list to handle WordPress-specific pagination and _embed parameter
-    async list(params: ListParams): Promise<ListResult<Post>> {
+    async list(params: ListParams): Promise<ListResult<any>> {
         const queryParams = new URLSearchParams({
             page: params.page?.toString() || '1',
             per_page: params.limit?.toString() || '10',
@@ -32,7 +31,7 @@ export class WordPressApiService extends ApiDataService<Post> {
     }
 
     // Override read to include _embed parameter
-    async read(id: ID): Promise<Post | null> {
+    async read(id: ID): Promise<any | null> {
         const response = await this.fetchWithAuth(
             `${this.baseUrl}/${id}?_embed=wp:featuredmedia`
         );
