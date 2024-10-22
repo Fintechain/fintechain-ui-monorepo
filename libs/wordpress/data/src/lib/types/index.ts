@@ -1,9 +1,10 @@
 import { Models } from "@rematch/core";
+import { HasID, ID } from "@fintechain-monorepo/page-architect";
 
 // Entity Types
 
-export interface Post {
-    id: number;
+export interface Post extends HasID  {
+    id: ID;
     title: { rendered: string };
     content: { rendered: string };
     excerpt: { rendered: string };

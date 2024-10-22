@@ -4,19 +4,15 @@
     "allowJs": false,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "strict": true,
-    "types": ["vite/client"]
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "files": [],
   "include": [],
   "references": [
     {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
+      "path": "./tsconfig.lib.json"
     }
   ],
   "extends": "../../tsconfig.base.json"
