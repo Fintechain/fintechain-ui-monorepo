@@ -1,27 +1,29 @@
 import "reflect-metadata";
 import { StrictMode } from 'react';
+import { Provider } from "react-redux";
 import * as ReactDOM from 'react-dom/client';
 import { ThemeProvider } from "@material-tailwind/react";
-import { Provider, connect } from "react-redux";
-import App from './app/app';
-import NxWelcome from './app/nx-welcome';
-import { container } from './app/container';
 import { Provider as InversifyProvider } from 'inversify-react';
-import { store } from '@fintechain-monorepo/page-architect';
+
+import App from './app/app';
+import { store } from "./app/store";
+import { container } from './app/container';
+import { WalletProvider } from "@fintechain-monorepo/ethereum-ui";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 root.render(
     <StrictMode>
-        <ThemeProvider>
-            <Provider store={store}>
-                {/* <App /> */}
+        <WalletProvider>
+            <ThemeProvider>
+                <Provider store={store}>
 
-                <InversifyProvider container={container}>
-                    <NxWelcome title={'Use Data hook'} />
-                </InversifyProvider>
-            </Provider>,
-        </ThemeProvider>
+                    <InversifyProvider container={container}>
+                        <App />
+                    </InversifyProvider>
+                </Provider>
+            </ThemeProvider>
+        </WalletProvider>
     </StrictMode>
 );

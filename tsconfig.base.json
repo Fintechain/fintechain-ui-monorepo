@@ -1,60 +1,31 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "rootDir": ".",
-        "sourceMap": true,
-        "declaration": false,
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "importHelpers": true,
-        "target": "es2015",
-        "module": "esnext",
-        "lib": [
-            "es2020",
-            "dom"
-        ],
-        "skipLibCheck": true,
-        "skipDefaultLibCheck": true,
-        "baseUrl": ".",
-        "paths": {
-            "@fintechain-monorepo/ethereum-data": [
-                "libs/ethereum/data/src/index.ts"
-            ],
-            "@fintechain-monorepo/ethereum-ui": [
-                "libs/ethereum/ui/src/index.ts"
-            ],
-            "@fintechain-monorepo/fintechain-website-data": [
-                "libs/fintechain-website/data/src/index.ts"
-            ],
-            "@fintechain-monorepo/fintechain-website-ui": [
-                "libs/fintechain-website/ui/src/index.ts"
-            ],
-            "@fintechain-monorepo/page-architect": [
-                "libs/page-architect/src/index.ts"
-            ],
-            "@fintechain-monorepo/shared-data": [
-                "libs/shared/data/src/index.ts"
-            ],
-            "@fintechain-monorepo/shared-ui": [
-                "libs/shared/ui/src/index.ts"
-            ],
-            "@fintechain-monorepo/website-shared-data": [
-                "libs/website-shared/data/src/index.ts"
-            ],
-            "@fintechain-monorepo/website-shared-ui": [
-                "libs/website-shared/ui/src/index.ts"
-            ],
-            "@fintechain-monorepo/wordpress-data": [
-                "libs/wordpress/data/src/index.ts"
-            ],
-            "@fintechain-monorepo/wordpress-ui": [
-                "libs/wordpress/ui/src/index.ts"
-            ]
-        }
-    },
-    "exclude": [
-        "node_modules",
-        "tmp"
-    ]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@fintechain-monorepo/ethereum-data": ["libs/ethereum/data/src/index.ts"],
+      "@fintechain-monorepo/ethereum-ui": ["libs/ethereum/ui/src/index.ts"],
+      "@fintechain-monorepo/fintechain-website-data": [
+        "libs/fintechain-website/data/src/index.ts"
+      ],
+      "@fintechain-monorepo/fintechain-website-ui": [
+        "libs/fintechain-website/ui/src/index.ts"
+      ],
+      "@fintechain-monorepo/shared-data": ["libs/shared/data/src/index.ts"],
+      "@fintechain-monorepo/shared-ui": ["libs/shared/ui/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
 }

@@ -13,7 +13,7 @@ module.exports = withMT({
         "../../node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
         ...createGlobPatternsForDependencies(__dirname),
     ],
-    
+
     // Extending the theme to include design tokens
     theme: {
         extend: {
@@ -27,28 +27,17 @@ module.exports = withMT({
             // Standardized color palette
             colors: {
                 primary: {
-                    light: '#93c5fd', // Tailwind-based light blue
-                    DEFAULT: '#0496FF', // Dodger Blue as primary
-                    dark: '#006BA6', // Bice Blue as dark primary
+                    DEFAULT: '#3D5A80',
+                    light: '#98C1D9',
+                    lighter: '#E0FBFC',
                 },
-                secondary: {
-                    light: '#FFBC42', // Xanthous as secondary light
-                    DEFAULT: '#D81159', // Raspberry as main secondary
-                    dark: '#8F2D56', // Quinacridone Magenta as dark
+                accent: {
+                    DEFAULT: '#EE6C4D',
+                    light: '#E7B4A5',
                 },
-                neutral: {
-                    light: '#F3F4F6', // Light grey
-                    DEFAULT: '#D1D5DB', // Default grey
-                    dark: '#374151', // Dark grey
-                },
-                indigo: {
-                    950: '#2e1065', // Deep indigo
-                },
-                blue: {
-                    950: '#172554', // Deep blue
-                },
+                dark: '#293241',
             },
-            
+
             // Spacing scale for consistent padding/margins
             spacing: {
                 'xs': '4px',   // Extra small space

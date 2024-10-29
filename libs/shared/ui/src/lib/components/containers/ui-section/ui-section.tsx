@@ -1,108 +1,52 @@
 import React from 'react';
-import DOMPurify from 'dompurify';
-import { Typography } from '@material-tailwind/react';
-import { UiSectionContent, UiSectionData } from '../../../types';
+import { SectionData } from './page';
 
-export interface UiSectionProps {
-    data: UiSectionData;
-    children?: React.ReactNode | ((content: UiSectionContent) => React.ReactNode);
-}
+interface UiSectionProps {
+    data: SectionData;
+    children?: React.ReactNode | ((data: SectionData) => React.ReactNode);
+} 
 
-const sanitizeHtml = (html: string): string => {
-    return DOMPurify.sanitize(html);
-};
+const UiSection: React.FC<UiSectionProps> = ({ data, children }) => {
+    const { id, type, style } = data;
+    const { background, contentClassName } = style;
 
-export const UiSection: React.FC<UiSectionProps> = ({ data, children }) => {
-    const { content, style } = data;
-    const {
-        backgroundType,
-        backgroundValue,
-        overlayColor = 'bg-black',
-        overlayOpacity = 50,
-        className = '',
-        contentClassName = '',
-        titleClassName = 'mb-4 text-3xl lg:text-5xl',
-        subtitleClassName = 'mx-auto max-w-4xl text-xl mb-6',
-    } = style;
+    // Build background-related classes based on configuration
+    const getBackgroundClasses = () => {
+        const classes = ['relative'];  // section is always relative positioned
 
-    const { title, subtitle, contentBlocks } = content;
-
-    const getBackgroundStyle = () => {
-        if (backgroundType === 'image') {
-            return { backgroundImage: `url(${backgroundValue})` };
-        }
-        return {};
-    };
-
-    const sectionClasses = [
-        'relative',
-        backgroundType === 'image' ? 'bg-cover bg-center bg-no-repeat' : backgroundValue,
-        className
-    ].filter(Boolean).join(' ');
-
-    const overlayClasses = [
-        'absolute',
-        'inset-0',
-        overlayColor,
-        `opacity-${overlayOpacity}`
-    ].join(' ');
-
-    const contentClasses = [
-        'relative',
-        'z-10',
-        'container',
-        'mx-auto',
-        contentClassName
-    ].join(' ');
-
-    /* const renderContentBlock = (block: ContentBlock) => {
-        switch (block.type) {
-            case 'text':
-                return (
-                    <Typography key={block.id} variant="paragraph" className="mb-4">
-                        {block.content}
-                    </Typography>
-                );
-            case 'html':
-                return (
-                    <Typography 
-                        key={block.id} 
-                        variant="paragraph" 
-                        className="mb-4"
-                        dangerouslySetInnerHTML={{ __html: sanitizeHtml(block.content) }} 
-                    />
-                );
+        switch (background.type) {
             case 'image':
-                return <img key={block.id} src={block.content} alt="" className="mx-auto mb-4" />;
-            default:
-                return null;
+                classes.push(
+                    'bg-cover',
+                    'bg-no-repeat',
+                    background.position?.x === 'center' ? 'bg-center' : '',
+                    background.attachment === 'fixed' ? 'bg-fixed' : ''
+                );
+                break;
+            case 'color':
+                // Color backgrounds should be handled via CSS classes
+                break;
         }
-    }; */
+
+        return classes.filter(Boolean).join(' ');
+    };
 
     return (
         <section
-            className={sectionClasses}
-            style={getBackgroundStyle()}
+            id={id}
+            data-type={type}
+            className={getBackgroundClasses()}
+            style={background.type === 'image' ? { backgroundImage: `url(${background.url})` } : undefined}
         >
-            {backgroundType === 'image' && (
+            {background.overlay && (
                 <div
-                    className={overlayClasses}
                     aria-hidden="true"
+                    className={`absolute inset-0 ${background.overlay.color}`}
                 />
             )}
-            <div className={contentClasses}>
-                {title && (
-                    <Typography variant="h2" className={titleClassName}>
-                        {title}
-                    </Typography>
-                )}
-                {subtitle && (
-                    <Typography variant="lead" className={subtitleClassName}>
-                        {subtitle}
-                    </Typography>
-                )}
-                {/* {Object.values(contentBlocks).map(renderContentBlock)} */}
-                {typeof children === 'function' ? children(content) : children}
+
+            <div className={`relative z-10 ${contentClassName}`}>
+                {typeof children === 'function' ? children(data) : children}
             </div>
         </section>
     );

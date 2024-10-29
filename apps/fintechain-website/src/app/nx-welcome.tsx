@@ -1,21 +1,14 @@
 
 // ... other imports follow
-import { DataService, PageData, useData } from "@fintechain-monorepo/page-architect";
-import { container, TYPES } from "./container";
+import { DataService, usePageData } from "@fintechain-monorepo/shared-data";
+import { TYPES } from "./container";
 import { useInjection } from "inversify-react";
 import { Post } from "@fintechain-monorepo/wordpress-data";
 
-/*
- * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- This is a starter component and can be deleted.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- Delete this file and get started with your project!
- * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- */
 export function NxWelcome({ title }: { title: string }) {
-    const wordpressService = useInjection<DataService<Post>>(TYPES.WordPressService);
+    const wordpressService = useInjection<DataService<Post>>(TYPES.WordPressDataService);
     
-    const { data: posts, loading, error } = useData<Post>({
+    /* const { data: posts, loading, error } = useData<Post>({
         service: wordpressService,
         params: {
             page: 1,
@@ -25,15 +18,17 @@ export function NxWelcome({ title }: { title: string }) {
                 categories: '1,2'
             }
         }
-    });
+    }); */
+
+    const { page, loading, error } = usePageData("about-page");
 
     if (loading) return <div>Loading posts...</div>;
     if (error) return <div>Error: {error.message}</div>;
-    if (!posts || !Array.isArray(posts)) return <div>No posts found</div>;
+    if (!page) return <div>No posts found</div>;
 
     return (
         <div>
-            {posts.map(post => (
+            {/* {posts.map(post => (
                 <article key={post.id}>
                     <h2 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
                     {post._embedded?.['wp:featuredmedia']?.[0] && (
@@ -44,7 +39,7 @@ export function NxWelcome({ title }: { title: string }) {
                     )}
                     <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
                 </article>
-            ))}
+            ))} */}
         </div>
     );
 }
