@@ -35,7 +35,18 @@ module.exports = withMT({
                     DEFAULT: '#EE6C4D',
                     light: '#E7B4A5',
                 },
-                dark: '#293241',
+                dark: {
+                    DEFAULT: '#293241',  // Original color
+                    100: '#293241',      // Base
+                    200: '#2e3847',      // +5%
+                    300: '#333d4d',      // +10%
+                    400: '#384253',      // +15%
+                    500: '#3d4759',      // +20%
+                    600: '#424c5f',      // +25%
+                    700: '#475165',      // +30%
+                    800: '#4c566b',      // +35%
+                    900: '#515b71',      // +40%
+                  },
             },
 
             // Spacing scale for consistent padding/margins

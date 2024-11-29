@@ -6,8 +6,11 @@ import {
     BuildingOffice2Icon, // equivalent to Building2
     GlobeAltIcon // equivalent to Globe2
 } from "@heroicons/react/24/outline";
+import { useImages } from '../../../../../hooks/asset-context';
 
 export const AboutPage = () => {
+    const images = useImages();
+
     return (
         <div className="flex flex-col min-h-full">
             {/* Hero Section */}
@@ -17,7 +20,7 @@ export const AboutPage = () => {
                     <div
                         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                         style={{
-                            backgroundImage: `url(/src/assets/banners/about-page.jpg)`  // Replace with your image path
+                            backgroundImage: `url(${images.banners.aboutBanner})`  // Replace with your image path
                         }}
                     />
                     {/* Gradient overlay to ensure text readability */}
@@ -29,8 +32,10 @@ export const AboutPage = () => {
                 </div>
                 <div className="container mx-auto px-4 relative">
                     <div className="max-w-3xl mx-auto text-center">
-                        <h1 className="text-5xl font-bold text-white mb-6">Revolutionizing Global Finance</h1>
-                        <p className="text-xl text-gray-300 leading-relaxed">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                            Revolutionizing Global Finance
+                        </h1>
+                        <p className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed mx-auto max-w-2xl">
                             Building the next generation of financial infrastructure through innovative blockchain technology and ISO 20022 standardization.
                         </p>
                     </div>
@@ -45,7 +50,7 @@ export const AboutPage = () => {
                             <div className="absolute inset-0 bg-accent/10 rounded-lg transform -rotate-6" />
                             <div className="absolute inset-0 bg-primary/20 rounded-lg transform rotate-3" />
                             <img
-                                src="/api/placeholder/600/600"
+                                src={images.backgrounds.about.aboutMission}
                                 alt="Our Mission"
                                 className="relative rounded-lg shadow-xl w-full h-full object-cover"
                             />
@@ -134,7 +139,7 @@ export const AboutPage = () => {
                 </div>
             </section>
 
-            {/* Leadership Section */}
+            {/* Leadership Section 
             <section className="py-24 bg-gradient-to-b from-primary to-dark">
                 <div className="container mx-auto px-4">
                     <h2 className="text-4xl font-bold text-white text-center mb-16">Our Leadership</h2>
@@ -176,7 +181,7 @@ export const AboutPage = () => {
                     </div>
                 </div>
             </section>
-
+            */}
             {/* Office Locations */}
             <section className="py-24 bg-gradient-to-r from-primary to-accent">
                 <div className="container mx-auto px-4">
@@ -199,7 +204,7 @@ export const AboutPage = () => {
                                 role: "Middle East Office"
                             }
                         ].map((office, index) => (
-                            <div key={index} className="bg-primary/10 rounded-lg p-6 hover:bg-primary/20 transition-all duration-300">
+                            <div key={index} className="bg-dark rounded-lg p-6 hover:bg-dark/80 transition-all duration-300">
                                 <h3 className="text-xl font-semibold text-white mb-2">{office.city}</h3>
                                 <div className="text-accent mb-2">{office.role}</div>
                                 <p className="text-gray-300">{office.address}</p>

@@ -4,15 +4,17 @@ import {
     CloudArrowUpIcon,
     ChatBubbleLeftRightIcon
 } from "@heroicons/react/24/outline";
+import { useImages } from "../../../../../hooks/asset-context";
 
 export function HeroSection() {
+    const images = useImages();
     return (
         <>
             {/* Background image with darker overlay */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{
-                    backgroundImage: `url(/src/assets/b1.jpg)`
+                    backgroundImage: `url(${images.backgrounds.home.hero})`
                 }}
             >
                 <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/75 to-black/50" />

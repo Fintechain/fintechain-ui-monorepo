@@ -75,13 +75,6 @@ export function Header({
         }
     }, [errorMessage, selectedAccount, isError, clearError, dispatch]);
 
-
-
-
-
-
-
-
     const headerClasses = `
         fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-dark
         ${isScrolled
@@ -149,6 +142,7 @@ export function Header({
                             </Link>
                         ))}
 
+
                         {!selectedAccount && (
                             <>
                                 <Button
@@ -178,11 +172,14 @@ export function Header({
                                         </Button>
                                     </MenuHandler>
                                     <MenuList className="bg-dark/95 backdrop-blur-sm border border-primary/20 p-2">
-                                        <MenuItem className="text-gray-200 hover:bg-primary/20 rounded-lg transition-all duration-200">
-                                            {selectedAccount}
+                                        <MenuItem key={0} className="text-gray-200 hover:bg-primary/20 rounded-lg transition-all duration-200">
+                                            <Link to={"/token-board"}>Token Board</Link>
+                                        </MenuItem>
+                                        <MenuItem key={1}  className="text-gray-200 hover:bg-primary/20 rounded-lg transition-all duration-200">
+                                            <Link to={"/pacs-008"}>Send PACS.008 Message</Link>
                                         </MenuItem>
                                         <hr className="border-primary/20 my-2" />
-                                        <MenuItem className="text-gray-200 hover:bg-primary/20 rounded-lg transition-all duration-200">
+                                        <MenuItem key={3} className="text-gray-200 hover:bg-primary/20 rounded-lg transition-all duration-200">
                                             Balance: {balance} ETH
                                         </MenuItem>
                                     </MenuList>
@@ -221,7 +218,7 @@ export function Header({
                     <div className="px-2 pt-2 pb-3 space-y-1">
                         {menuItems.map((item) => (
                             <Link
-                                key={item.href}
+                                key={item.id}
                                 to={item.href}
                                 className={mobileLinkClasses(isActive(item.href))}
                             >

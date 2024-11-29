@@ -9,8 +9,10 @@ import {
     ChartBarIcon,
     ClockIcon,
 } from "@heroicons/react/24/outline";
+import { useImages } from '../../../../../hooks/asset-context';
 
 export const SolutionsPage = () => {
+    const images = useImages();
     return (
         <div className="flex flex-col min-h-full">
             {/* Hero Section */}
@@ -21,17 +23,19 @@ export const SolutionsPage = () => {
                     <div
                         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                         style={{
-                            backgroundImage: `url(/src/assets/banners/solutions-page.jpg)`  // Replace with your image path
+                            backgroundImage: `url(${images.banners.solutionsBanner})`  // Replace with your image path
                         }}
                     />
                     {/* Gradient overlay to ensure text readability */}
                     <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/75 to-black/50" />
                 </div>
-               
+
                 <div className="container mx-auto px-4 relative">
                     <div className="max-w-3xl mx-auto text-center">
-                        <h1 className="text-5xl font-bold text-white mb-6">Enterprise-Grade Financial Infrastructure</h1>
-                        <p className="text-xl text-gray-300 leading-relaxed">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                            Enterprise-Grade Financial Infrastructure
+                        </h1>
+                        <p className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed mx-auto max-w-2xl">
                             Our decentralized RTGS and ISO 20022 messaging solutions power the future of institutional finance.
                         </p>
                     </div>

@@ -9,8 +9,12 @@ import {
     GlobeAltIcon,
     CubeTransparentIcon,
 } from "@heroicons/react/24/outline";
+import { useImages } from '../../../../../hooks/asset-context';
 
 export const NeedsPage = () => {
+
+    const images = useImages();
+
     const challenges = [
         {
             icon: BanknotesIcon,
@@ -74,7 +78,7 @@ export const NeedsPage = () => {
                     <div
                         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                         style={{
-                            backgroundImage: `url(/src/assets/banners/needs-page.jpg)`  // Replace with your image path
+                            backgroundImage: `url(${images.banners.needsBanner})`  // Replace with your image path
                         }}
                     />
                     {/* Gradient overlay to ensure text readability */}
@@ -86,8 +90,10 @@ export const NeedsPage = () => {
                 </div>
                 <div className="container mx-auto px-4 relative">
                     <div className="max-w-3xl mx-auto text-center">
-                        <h1 className="text-5xl font-bold text-white mb-6">Understanding Your Needs</h1>
-                        <p className="text-xl text-gray-300 leading-relaxed">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                            Understanding Your Needs
+                        </h1>
+                        <p className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed mx-auto max-w-2xl">
                             Modern financial institutions face unique challenges in today's rapidly evolving digital landscape. We're here to help you navigate this transformation.
                         </p>
                     </div>

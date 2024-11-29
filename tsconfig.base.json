@@ -15,6 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@fintechain-monorepo/content-blocks": [
+        "libs/content-blocks/src/index.ts"
+      ],
+      "@fintechain-monorepo/content-blocks-api": [
+        "libs/content-blocks-api/src/index.ts"
+      ],
       "@fintechain-monorepo/ethereum-data": ["libs/ethereum/data/src/index.ts"],
       "@fintechain-monorepo/ethereum-ui": ["libs/ethereum/ui/src/index.ts"],
       "@fintechain-monorepo/fintechain-website-data": [
@@ -24,7 +30,9 @@
         "libs/fintechain-website/ui/src/index.ts"
       ],
       "@fintechain-monorepo/shared-data": ["libs/shared/data/src/index.ts"],
-      "@fintechain-monorepo/shared-ui": ["libs/shared/ui/src/index.ts"]
+      "@fintechain-monorepo/shared-ui": ["libs/shared/ui/src/index.ts"],
+
+      "@fintechain/typechain": ["../../../Solidity/gfs-contracts/typechain"],
     }
   },
   "exclude": ["node_modules", "tmp"]

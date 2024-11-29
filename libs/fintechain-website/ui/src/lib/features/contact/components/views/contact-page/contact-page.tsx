@@ -5,8 +5,10 @@ import {
     PhoneIcon,
     BuildingOffice2Icon,
 } from "@heroicons/react/24/outline";
+import { useImages } from '../../../../../hooks/asset-context';
 
 export const ContactPage = () => {
+    const images = useImages();
     const socialLinks = [
         {
             name: "LinkedIn",
@@ -19,7 +21,7 @@ export const ContactPage = () => {
         },
         {
             name: "Twitter",
-            url: "https://twitter.com/fintechain",
+            url: "https://x.com/FintechainLab",
             icon: (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
@@ -76,7 +78,7 @@ export const ContactPage = () => {
                     <div
                         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                         style={{
-                            backgroundImage: `url(/src/assets/banners/contact-page.jpg)`  // Replace with your image path
+                            backgroundImage: `url(${images.banners.contactBanner})`  // Replace with your image path
                         }}
                     />
                     {/* Gradient overlay to ensure text readability */}
@@ -120,8 +122,8 @@ export const ContactPage = () => {
                 </div>
             </section>
 
-            {/* Direct Contact Section */}
-            <section className="py-24 bg-dark">
+            {/* Direct Contact Section 
+            <section className="py-24 bg-gradient-to-b from-dark to-accent">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-bold text-white mb-4">Get in Touch</h2>
@@ -151,7 +153,7 @@ export const ContactPage = () => {
                             <a
                                 key={index}
                                 href={contact.link}
-                                className="flex flex-col items-center p-8 bg-primary/10 rounded-lg hover:bg-primary/20 transition-all duration-300"
+                                className="flex flex-col items-center p-8 bg-dark rounded-lg hover:bg-primary/90 transition-all duration-300"
                             >
                                 <contact.icon className="w-8 h-8 text-accent mb-4" />
                                 <h3 className="text-xl font-semibold text-white mb-2">{contact.title}</h3>
@@ -160,9 +162,9 @@ export const ContactPage = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            {/* Global Offices Section */}
+            {/* Global Offices Section 
             <section className="py-24 bg-gradient-to-r from-primary to-accent">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-bold text-white text-center mb-16">Global Presence</h2>
@@ -184,7 +186,7 @@ export const ContactPage = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
         </div>
     );
 };

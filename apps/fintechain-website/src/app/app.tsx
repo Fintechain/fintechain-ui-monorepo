@@ -55,6 +55,16 @@ const AnimatedRoutes = () => {
                             <FintechainWebsiteUiLib.PhilosophyPage />
                         </SharedUiLib.PageTransition>
                     } />
+                    <Route path="/pacs-008" element={
+                        <SharedUiLib.PageTransition>
+                            <FintechainWebsiteUiLib.Pacs008Page />
+                        </SharedUiLib.PageTransition>
+                    } />
+                    <Route path="/token-board" element={
+                        <SharedUiLib.PageTransition>
+                            <FintechainWebsiteUiLib.WalletPage />
+                        </SharedUiLib.PageTransition>
+                    } />
                 </Routes>
             </AnimatePresence>
         </SharedUiLib.PageWrapper>
