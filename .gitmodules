@@ -1,0 +1,3 @@
+[submodule "onboard/account-kit-quickstart"]
+	path = onboard/account-kit-quickstart
+	url = https://github.com/avarobinson/account-kit-quickstart.git
