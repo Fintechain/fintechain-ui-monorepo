@@ -1,0 +1,97 @@
+/* Scanner container */
+.scanner-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Input styling */
+input,
+textarea {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: white;
+  border-radius: 5px;
+}
+
+/* Drop area */
+.drop-area {
+  border: 2px dashed #4caf50;
+  padding: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* File Info */
+.file-info {
+  display: flex;
+  justify-content: space-between;
+  background: #333;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Buttons */
+.analyze-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.analyze-btn:hover {
+  background-color: #0056b3;
+}
+
+.clear-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.clear-btn:hover {
+  background-color: #cc0000;
+}
+
+/* Error message */
+.error {
+  background: #ff4d4d;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+/* Analysis Result */
+.result {
+  background: #2a2a2a;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: left;
+}
+
+/* Syntax Highlighting */
+.code-block {
+  background: #000;
+  color: #0f0;
+  padding: 10px;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  border-radius: 5px;
+}
