@@ -6,16 +6,22 @@ import {
   useSignerStatus,
   useUser
 } from "@account-kit/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ThemeSwitch from "@/frontend/themeswitch";
 import AccountComponent from "@/backend/accountcomponent";
+import SolidityScanner from "../../ai-smart-contract-audit/frontend/src/components/solidityscanner";
 
 export default function Home() {
+  const [showAuditTool, setShowAuditTool] = useState(false);
   const user = useUser();
   const { openAuthModal } = useAuthModal();
   const signerStatus = useSignerStatus();
   const isAuthenticating = signerStatus.isInitializing;
   const { logout } = useLogout();
+
+  const openAuditTool = () => {
+    setShowAuditTool(!showAuditTool);
+  };
 
   useEffect(() => {
     if (isAuthenticating) {
@@ -37,21 +43,40 @@ export default function Home() {
                   border: "1px solid #2e8bc0", 
                   borderRadius: "0.6rem"
                  }}>
-          <div className="flex flex-col text-2xl font-bold">
-            {/* <ThemeSwitch /> */}
-            <h3 className="text-xl font-bold" style={{ fontSize: "18px" }}>Success!</h3>
-            <div>
-              <p style={{ fontSize: "15px" }}>Logged in as</p>
-              <span style={
-                { textDecoration: "oblique", 
-                  fontSize: "20px", 
-                  padding: "0.3rem 0.6rem 0.3rem 0.6rem"
-                }}>{user.email ?? user.address}</span>
-            </div>
-          </div>
+          <button style={
+                  {
+                    color: "#fff",
+                    fontSize: "15px",
+                    backgroundColor: "#000000",
+                    border: "1px solid #fff",
+                    borderRadius: "0.25rem",
+                    padding: "0.3rem 0.6rem 0.3rem 0.6rem",
+                    width: "30%"
+                  }} onClick={() => openAuditTool()}>
+            {showAuditTool ? 'Show Account' : 'Audit Tool'}
+          </button>
           
-          {/* Account Component that displays smart account info */}
-          <AccountComponent />
+          {showAuditTool ? (
+            <SolidityScanner />
+          ) : (
+            <>
+              <div className="flex flex-col text-2xl font-bold">
+                {/* <ThemeSwitch /> */}
+                <h3 className="text-xl font-bold" style={{ fontSize: "18px" }}>Success!</h3>
+                <div>
+                  <p style={{ fontSize: "15px" }}>Logged in as</p>
+                  <span style={
+                    { textDecoration: "oblique", 
+                      fontSize: "20px", 
+                      padding: "0.3rem 0.6rem 0.3rem 0.6rem"
+                    }}>{user.email ?? user.address}</span>
+                </div>
+              </div>
+              
+              {/* Account Component that displays smart account info */}
+              <AccountComponent />
+            </>
+          )}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
           <button style={
                   {
