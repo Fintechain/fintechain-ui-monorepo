@@ -11,8 +11,9 @@ export default withAccountKitUi({
     extend: {},
   },
   colors: {
-    "btn-primary": createColorSet("#000000", "#000000"),
-    "fg-accent-brand": createColorSet("#000000", "#000000"),
+    "btn-primary": createColorSet("#606060", "#FF66CC"),
+    "fg-accent-brand": createColorSet("#606060", "#FF66CC"),
   },
+  borderRadius: "lg",
   plugins: [],
 });
